@@ -63,6 +63,8 @@ class EscrowSetup:
         tax: Property tax assessment
         insurance: Insurance policy
         cushion_months: Number of months' cushion to maintain (RESPA max: 2)
+        starting_balance_limit: Maximum required starting balance as a
+            multiple of the cushion amount (prevents excessive collection)
         anticipated_tax_changes: List of anticipated tax rate changes
         anticipated_insurance_premium: New insurance premium if changing
     """
@@ -73,6 +75,7 @@ class EscrowSetup:
     tax: TaxAssessment
     insurance: InsurancePolicy
     cushion_months: int = 2
+    starting_balance_limit: float = 1.5
     anticipated_tax_changes: list[TaxRateChange] = field(default_factory=list)
     anticipated_insurance_premium: float | None = None
 
