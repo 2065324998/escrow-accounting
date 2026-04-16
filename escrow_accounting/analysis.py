@@ -10,10 +10,6 @@ from .models import EscrowSetup, AnalysisResult, ProjectionMonth
 from .tax_proration import compute_monthly_tax_disbursements
 from .insurance import compute_monthly_insurance_disbursements
 
-# Cap the required starting balance at this multiple of the cushion
-# to prevent over-collection per the servicer's escrow policy
-STARTING_BALANCE_CUSHION_LIMIT = 1.5
-
 
 def perform_analysis(setup: EscrowSetup) -> AnalysisResult:
     """Perform annual escrow analysis.
