@@ -54,12 +54,7 @@ def compute_monthly_tax_disbursements(
 
 
 def _fiscal_year_for_month(month: int, year: int, fy_start_month: int) -> date:
-    """Determine the start of the fiscal year containing the given month.
-
-    Example: if fiscal year starts in July (month 7), then:
-        - October 2025 -> FY starting July 2025
-        - March 2025   -> FY starting July 2024
-    """
+    """Determine the start of the fiscal year containing the given month."""
     return date(year, fy_start_month, 1)
 
 

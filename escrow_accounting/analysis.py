@@ -12,20 +12,11 @@ from .insurance import compute_monthly_insurance_disbursements
 
 
 def perform_analysis(setup: EscrowSetup) -> AnalysisResult:
-    """Perform RESPA aggregate escrow analysis.
+    """Perform annual escrow analysis.
 
-    The aggregate analysis projects the escrow account balance for the
-    upcoming 12 months to determine:
-    - Required monthly deposit
-    - Maximum allowable cushion (per RESPA Section 10)
-    - Any shortage or surplus in the account
-
-    The method works by:
-    1. Projecting all anticipated disbursements for the next 12 months
-    2. Computing the base monthly deposit (total disbursements / 12)
-    3. Running a trial balance projection to find the lowest balance point
-    4. Computing the required starting balance to maintain the cushion
-    5. Comparing required starting balance to actual balance for shortage/surplus
+    Analyzes the escrow account to determine the required monthly
+    deposit for the upcoming year based on anticipated disbursements,
+    current balance, and cushion requirements.
     """
     # Step 1: Project disbursements
     tax_disb = compute_monthly_tax_disbursements(
